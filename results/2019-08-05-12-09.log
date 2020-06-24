@@ -1,0 +1,1 @@
+{"reg_option": 4, "memo": "rerun correlation 20-28 cores", "obj_path": "/u/ziyangx//cpf/llvm-liberty-objects/", "root_path": "/dev/shm/cpf_regression/", "bmark_list": ["correlation"], "test_times": 3, "sha_cpf": "b1effc67", "post_slack": false, "sha_bmark": "f89de234", "result_path": "/dev/shm/cpf_regression/results/2019-08-05-12-09", "core_num": 4}

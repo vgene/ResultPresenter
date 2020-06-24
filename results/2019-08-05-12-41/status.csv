@@ -1,0 +1,5 @@
+Benchmarks,Edge,Loop,LAMP,SpecPriv,Estimated Speedup,Worker Count,Exec Time Coverage,Loop Info,Average Sequential Time,Average Parallel Time,Real Speedup
+covariance,y,y,y,y,19.41,22,99.70%," X kernel_covariance :: for.cond43(filename:covariance.c, line:78, col:9):covered (9/12) = 75.00 LC Deps;counts for (1450/1462) = 99.20%
+ X kernel_covariance :: for.cond36(filename:covariance.c, line:75, col:5):speedup = 17.87x;covered (17/18) = 94.44 LC Deps;counts for (1457/1462) = 99.70%
+ - kernel_covariance :: for.cond33(filename:covariance.c, line:74, col:3):speedup = 20.72x;covered (20/21) = 95.24 LC Deps;counts for (1457/1462) = 99.70%
+",894.369,-,-

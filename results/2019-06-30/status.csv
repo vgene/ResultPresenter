@@ -1,0 +1,9 @@
+Benchmarks,Edge,Loop,LAMP,SLAMP,SpecPriv,Estimated Speedup,Worker Count,Exec Time Coverage,Loop Info,Average Sequential Time,Average Parallel Time,Real Speedup
+052.alvinn,y,y,y,y,y,4.95,22,90.70%," X main :: for.cond2.i(filename:backprop.c, line:200, col:5):speedup = 1.00x;covered (14/16) = 87.50 LC Deps;counts for (32/172) = 18.60%
+ X main :: for.cond(filename:backprop.c, line:268, col:4):speedup = 1.79x;covered (330/338) = 97.63 LC Deps;counts for (163/172) = 94.80%
+ X main :: for.cond.i67(filename:backprop.c, line:197, col:3):speedup = 1.41x;covered (22/24) = 91.67 LC Deps;counts for (33/172) = 19.20%
+ - main :: for.cond11(filename:backprop.c, line:270, col:6):speedup = 8.32x;covered (250/251) = 99.60 LC Deps;counts for (156/172) = 90.70%
+ X main :: for.cond.i1(filename:backprop.c, line:113, col:3):speedup = 3.69x;covered (33/35) = 94.29 LC Deps;counts for (96/172) = 55.80%
+ X main :: for.cond4.i(filename:backprop.c, line:117, col:5):speedup = 1.90x;covered (18/20) = 90.00 LC Deps;counts for (83/172) = 48.30%
+ X main :: for.cond.i11(filename:backprop.c, line:141, col:3):speedup = 1.00x;covered (33/35) = 94.29 LC Deps;counts for (21/172) = 12.20%
+",298.149,28.959,10.3

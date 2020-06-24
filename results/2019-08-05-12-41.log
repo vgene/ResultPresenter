@@ -1,0 +1,1 @@
+{"root_path": "/dev/shm/cpf_regression/", "core_num": 4, "sha_cpf": "b1effc67", "memo": "seq time for covariance", "obj_path": "/u/ziyangx//cpf/llvm-liberty-objects/", "sha_bmark": "f89de234", "result_path": "/dev/shm/cpf_regression/results/2019-08-05-12-41", "reg_option": 3, "post_slack": false, "bmark_list": ["covariance"], "test_times": 3}

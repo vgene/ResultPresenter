@@ -1,0 +1,1 @@
+{"core_num": 4, "obj_path": "/u/ziyangx//cpf/llvm-liberty-objects/", "bmark_list": ["correlation", "covariance"], "sha_bmark": "5229290c", "reg_option": 4, "sha_cpf": "b1effc67", "result_path": "/dev/shm/cpf_regression/results/2019-08-05", "test_times": 3, "memo": "parallel vs cores for covariance and correlation", "root_path": "/dev/shm/cpf_regression/", "post_slack": false}

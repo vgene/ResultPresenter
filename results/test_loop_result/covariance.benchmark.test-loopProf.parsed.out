@@ -1,0 +1,4 @@
+Focus on these loops (in this order):
+ - kernel_covariance :: for.cond33 (filename:covariance.c, line:74, col:3)	Time 228703 / 228872 Coverage: 99.9%
+ - kernel_covariance :: for.cond36 (filename:covariance.c, line:75, col:5)	Time 228703 / 228872 Coverage: 99.9%
+ - kernel_covariance :: for.cond43 (filename:covariance.c, line:78, col:9)	Time 228244 / 228872 Coverage: 99.7%

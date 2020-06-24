@@ -1,0 +1,19 @@
+Benchmarks,Edge,Loop,LAMP,SpecPriv,Estimated Speedup,Worker Count,Exec Time Coverage,Loop Info,Average Sequential Time,Average Parallel Time,Real Speedup
+dijkstra-dynsize,y,y,y,y,10.92,22,98.10%," X main :: while.cond.i(filename:dijkstra_large.c, line:138, col:5):covered (158/163) = 96.93 LC Deps;counts for (405/414) = 97.80%
+ X main :: for.cond12.i(filename:dijkstra_large.c, line:141, col:7):covered (94/98) = 95.92 LC Deps;counts for (380/414) = 91.80%
+ X main :: while.cond.i19.i(filename:dijkstra_large.c, line:89, col:5):covered (4/5) = 80.00 LC Deps;counts for (253/414) = 61.10%
+ - main :: for.cond15(filename:dijkstra_large.c, line:188, col:3):speedup = 13.57x;covered (442/444) = 99.55 LC Deps;counts for (406/414) = 98.10%
+",-,24.126,-
+swaptions,y,y,y,y,16.39,22,100.00%," X _Z6workerPv :: for.cond33.i194.i(filename:HJM.cpp, line:390, col:2):speedup = 1.00x;covered (0/15) = 0.00 LC Deps;counts for (23/427) = 5.40%
+ - _Z6workerPv :: for.cond(filename:HJM_Securities.cpp, line:89, col:3):speedup = 16.39x;covered (9213/9214) = 99.99 LC Deps;counts for (427/427) = 100.00%
+ X _Z6workerPv :: for.cond77.i.i(filename:HJM_SimPath_Forward_Blocking.cpp, line:145, col:4):speedup = 3.15x;covered (38/40) = 95.00 LC Deps;counts for (131/427) = 30.70%
+ X _Z6workerPv :: for.cond37.i198.i(filename:HJM.cpp, line:392, col:4):speedup = 3.13x;covered (10/11) = 90.91 LC Deps;counts for (22/427) = 5.20%
+ X _Z6workerPv :: for.cond10.i179.i(filename:HJM.cpp, line:383, col:2):speedup = 1.53x;covered (6/7) = 85.71 LC Deps;counts for (36/427) = 8.40%
+ X _Z6workerPv :: for.cond36.i.i(filename:HJM_SimPath_Forward_Blocking.cpp, line:116, col:9):speedup = 1.00x;covered (26/28) = 92.86 LC Deps;counts for (22/427) = 5.20%
+ X _Z6workerPv :: for.cond.i107.i(filename:HJM_SimPath_Forward_Blocking.cpp, line:102, col:2):speedup = 1.12x;covered (30/31) = 96.77 LC Deps;counts for (25/427) = 5.90%
+ X _Z6workerPv :: for.cond10.i144.i(filename:HJM.cpp, line:383, col:2):speedup = 1.69x;covered (6/7) = 85.71 LC Deps;counts for (44/427) = 10.30%
+ X _Z6workerPv :: for.cond5.i.i.i(filename:HJM_SimPath_Forward_Blocking.cpp, line:66, col:7):speedup = 2.10x;covered (19/20) = 95.00 LC Deps;counts for (114/427) = 26.70%
+ X _Z6workerPv :: for.cond1.i.i.i(filename:HJM_SimPath_Forward_Blocking.cpp, line:65, col:5):speedup = 2.55x;covered (23/24) = 95.83 LC Deps;counts for (118/427) = 27.60%
+ X _Z6workerPv :: for.cond11.i.i(filename:HJM_SimPath_Forward_Blocking.cpp, line:103, col:4):speedup = 4.00x;covered (26/27) = 96.30 LC Deps;counts for (25/427) = 5.90%
+ X _Z6workerPv :: for.cond73.i.i(filename:HJM_SimPath_Forward_Blocking.cpp, line:144, col:2):speedup = 4.50x;covered (43/44) = 97.73 LC Deps;counts for (131/427) = 30.70%
+",-,60.032,-

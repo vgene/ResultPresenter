@@ -1,0 +1,23 @@
+Benchmarks,Edge,Loop,LAMP,SLAMP,SpecPriv,Estimated Speedup,Worker Count,Exec Time Coverage,Loop Info,Average Sequential Time,Average Parallel Time,Real Speedup
+gemm,y,y,y,y,y,11.07,22,96.20%," - kernel_gemm :: for.cond(filename:gemm.c, line:69, col:3):speedup = 18.53x;covered (3/4) = 75.00 LC Deps;counts for (150/156) = 96.20%
+ X kernel_gemm :: for.cond6(filename:gemm.c, line:73, col:7):speedup = 4.97x;covered (6/7) = 85.71 LC Deps;counts for (141/156) = 90.40%
+ X kernel_gemm :: for.cond1(filename:gemm.c, line:70, col:5):speedup = 7.57x;covered (3/4) = 75.00 LC Deps;counts for (150/156) = 96.20%
+"
+blackscholes,y,y,y,y,y,18.37,22,99.80%," X bs_thread :: for.cond2(filename:blackscholes.c, line:240, col:9):speedup = 13.99x;covered (9/9) = 100.00 LC Deps;counts for (652/653) = 99.80%
+ - bs_thread :: for.cond(filename:blackscholes.c, line:235, col:5):speedup = 18.87x;covered (9/10) = 90.00 LC Deps;counts for (652/653) = 99.80%
+"
+covariance,y,y,y,y,y,19.66,22,99.70%," - kernel_covariance :: for.cond33(filename:covariance.c, line:74, col:3):speedup = 20.72x;covered (6/7) = 85.71 LC Deps;counts for (1461/1465) = 99.70%
+ X kernel_covariance :: for.cond43(filename:covariance.c, line:78, col:9):speedup = 12.38x;covered (7/9) = 77.78 LC Deps;counts for (1458/1465) = 99.50%
+ X kernel_covariance :: for.cond36(filename:covariance.c, line:75, col:5):speedup = 18.04x;covered (8/8) = 100.00 LC Deps;counts for (1461/1465) = 99.70%
+"
+2mm,y,y,y,y,y,14.15,22,98.80%," X kernel_2mm :: for.cond31(filename:2mm.c, line:84, col:5):speedup = 6.57x;covered (3/4) = 75.00 LC Deps;counts for (116/250) = 46.40%
+ X kernel_2mm :: for.cond39(filename:2mm.c, line:87, col:7):speedup = 4.07x;covered (6/7) = 85.71 LC Deps;counts for (115/250) = 46.00%
+ X kernel_2mm :: for.cond1(filename:2mm.c, line:77, col:5):speedup = 7.27x;covered (3/4) = 75.00 LC Deps;counts for (131/250) = 52.40%
+ X kernel_2mm :: for.cond6(filename:2mm.c, line:80, col:7):speedup = 4.64x;covered (6/7) = 85.71 LC Deps;counts for (128/250) = 51.20%
+ - kernel_2mm :: for.cond28(filename:2mm.c, line:83, col:3):speedup = 15.52x;covered (3/4) = 75.00 LC Deps;counts for (116/250) = 46.40%
+ - kernel_2mm :: for.cond(filename:2mm.c, line:76, col:3):speedup = 18.22x;covered (3/4) = 75.00 LC Deps;counts for (131/250) = 52.40%
+"
+correlation,y,y,y,y,y,14.29,22,97.80%," X kernel_correlation :: for.cond96(filename:correlation.c, line:100, col:5):speedup = 6.64x;covered (14/15) = 93.33 LC Deps;counts for (1418/1450) = 97.80%
+ X kernel_correlation :: for.cond103(filename:correlation.c, line:103, col:7):speedup = 11.53x;covered (6/7) = 85.71 LC Deps;counts for (1413/1450) = 97.40%
+ - kernel_correlation :: for.cond87(filename:correlation.c, line:97, col:3):speedup = 20.41x;covered (10/11) = 90.91 LC Deps;counts for (1418/1450) = 97.80%
+",7200.046,7200.019,1.0

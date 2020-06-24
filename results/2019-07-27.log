@@ -1,0 +1,1 @@
+{"result_path": "/dev/shm/cpf_regression/results/2019-07-27", "post_slack": false, "bmark_list": ["gemm"], "obj_path": "/u/ziyangx//cpf/llvm-liberty-objects/", "root_path": "/dev/shm/cpf_regression/", "test_times": 3, "core_num": 8, "reg_option": 4, "sha_cpf": "005cbaf0", "memo": "get parallel time for gemm", "sha_bmark": "6c33a043"}

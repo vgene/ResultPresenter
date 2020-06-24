@@ -1,0 +1,4 @@
+Focus on these loops (in this order):
+ - kernel_correlation :: for.cond87 (filename:correlation.c, line:97, col:3)	Time 242090 / 242914 Coverage: 99.7%
+ - kernel_correlation :: for.cond96 (filename:correlation.c, line:100, col:5)	Time 242090 / 242914 Coverage: 99.7%
+ - kernel_correlation :: for.cond103 (filename:correlation.c, line:103, col:7)	Time 241522 / 242914 Coverage: 99.4%

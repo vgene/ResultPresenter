@@ -1,0 +1,1 @@
+{"result_path": "/scratch/cpf_regression/results/2019-06-21", "memo": "update covariance args", "sha_cpf": "ed6c49eb", "remake_option": 2, "bmark_list": ["gemm", "covariance", "blackscholes", "correlation", "2mm"], "post_slack": false, "sha_bmark": "cd933da7", "root_path": "/scratch/cpf_regression", "obj_path": "/u/ziyangx//cpf/llvm-liberty-objects/", "core_num": 5}

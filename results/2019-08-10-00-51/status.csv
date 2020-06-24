@@ -1,0 +1,6 @@
+Benchmarks,Edge,Loop,LAMP,SpecPriv,Estimated Speedup,Worker Count,Exec Time Coverage,Loop Info,Average Sequential Time,Average Parallel Time,Real Speedup
+dijkstra-dynsize,y,y,y,y,10.92,22,98.10%," - main :: for.cond15(filename:dijkstra_large.c, line:188, col:3):speedup = 13.57x;covered (442/444) = 99.55 LC Deps;counts for (406/414) = 98.10%
+ X main :: while.cond.i(filename:dijkstra_large.c, line:138, col:5):covered (158/163) = 96.93 LC Deps;counts for (405/414) = 97.80%
+ X main :: for.cond12.i(filename:dijkstra_large.c, line:141, col:7):covered (94/98) = 95.92 LC Deps;counts for (380/414) = 91.80%
+ X main :: while.cond.i19.i(filename:dijkstra_large.c, line:89, col:5):covered (4/5) = 80.00 LC Deps;counts for (253/414) = 61.10%
+",938.119,-,-

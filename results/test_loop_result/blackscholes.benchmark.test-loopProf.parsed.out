@@ -1,0 +1,3 @@
+Focus on these loops (in this order):
+ - bs_thread :: for.cond (filename:blackscholes.c, line:235, col:5)	Time 2430898 / 2438079 Coverage: 99.7%
+ - bs_thread :: for.cond2 (filename:blackscholes.c, line:240, col:9)	Time 2430898 / 2438079 Coverage: 99.7%

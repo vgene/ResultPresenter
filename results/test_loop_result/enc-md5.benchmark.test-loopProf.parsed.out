@@ -1,0 +1,4 @@
+Focus on these loops (in this order):
+ - main :: for.cond7 (filename:md5.c, line:277, col:5)	Time 89136 / 89141 Coverage: 100.0%
+ - main :: for.cond9 (filename:md5.c, line:279, col:9)	Time 89133 / 89141 Coverage: 100.0%
+ - main :: while.cond.i (filename:md5.c, line:200, col:5)	Time 89002 / 89141 Coverage: 99.8%

@@ -1,0 +1,1 @@
+{"post_slack": false, "root_path": "/scratch/cpf_regression", "sha_bmark": "0eae8cdf", "sha_cpf": "b853603e", "result_path": "/scratch/cpf_regression/results/2019-06-30", "obj_path": "/u/ziyangx//cpf/llvm-liberty-objects/", "bmark_list": ["052.alvinn"], "core_num": 1, "memo": "only alvinn", "remake_option": 2}

@@ -1,0 +1,1 @@
+{"bmark_list": ["dijkstra-dynsize", "doitgen", "2mm"], "root_path": "/dev/shm/cpf_regression/", "memo": "generate parallel", "result_path": "/dev/shm/cpf_regression/results/2019-07-30", "obj_path": "/u/ziyangx//cpf/llvm-liberty-objects/", "test_times": 3, "post_slack": false, "sha_cpf": "63087145", "sha_bmark": "49ffc7ba", "core_num": 8, "reg_option": 4}

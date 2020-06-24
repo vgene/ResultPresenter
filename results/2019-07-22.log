@@ -1,0 +1,1 @@
+{"root_path": "/dev/shm/cpf_regression/", "result_path": "/dev/shm/cpf_regression/results/2019-07-22", "reg_option": 4, "memo": "get multiple worker time for two benchmarks", "sha_cpf": "b021c2dd", "bmark_list": ["doitgen", "blackscholes"], "obj_path": "/u/ziyangx//cpf/llvm-liberty-objects/", "core_num": 1, "test_times": 3, "sha_bmark": "3772a082", "post_slack": false}

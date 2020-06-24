@@ -1,0 +1,10 @@
+Focus on these loops (in this order):
+ - kernel_3mm :: for.cond (filename:3mm.c, line:72, col:3)	Time 307440 / 902790 Coverage: 34.1%
+ - kernel_3mm :: for.cond1 (filename:3mm.c, line:73, col:5)	Time 307439 / 902790 Coverage: 34.1%
+ - kernel_3mm :: for.cond6 (filename:3mm.c, line:76, col:7)	Time 307282 / 902790 Coverage: 34.0%
+ - kernel_3mm :: for.cond27 (filename:3mm.c, line:80, col:3)	Time 299109 / 902790 Coverage: 33.1%
+ - kernel_3mm :: for.cond30 (filename:3mm.c, line:81, col:5)	Time 299109 / 902790 Coverage: 33.1%
+ - kernel_3mm :: for.cond37 (filename:3mm.c, line:84, col:7)	Time 298976 / 902790 Coverage: 33.1%
+ - kernel_3mm :: for.cond63 (filename:3mm.c, line:88, col:3)	Time 296100 / 902790 Coverage: 32.8%
+ - kernel_3mm :: for.cond66 (filename:3mm.c, line:89, col:5)	Time 296100 / 902790 Coverage: 32.8%
+ - kernel_3mm :: for.cond73 (filename:3mm.c, line:92, col:7)	Time 295973 / 902790 Coverage: 32.8%

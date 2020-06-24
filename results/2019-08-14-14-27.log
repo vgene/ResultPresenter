@@ -1,0 +1,1 @@
+{"sha_cpf": "e7a584dc", "bmark_list": ["2mm", "3mm", "gemm"], "branch_cpf": "master", "memo": "rerun test on 2mm, 3mm, gemm", "num_workers": 28, "test_times": 10, "result_path": "/dev/shm/cpf_regression_perspective_cheap_spec/results/2019-08-14-14-27", "obj_path": "/u/ziyangx//cpf/llvm-liberty-objects/", "root_path": "/dev/shm/cpf_regression_perspective_cheap_spec"}

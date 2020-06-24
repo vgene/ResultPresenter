@@ -1,0 +1,5 @@
+Benchmarks,Edge,Loop,LAMP,SpecPriv,Estimated Speedup,Worker Count,Exec Time Coverage,Loop Info,Average Sequential Time,Average Parallel Time,Real Speedup
+correlation,y,y,y,y,14.12,22,97.60%," - kernel_correlation :: for.cond87(filename:correlation.c, line:97, col:3):speedup = 20.71x;covered (22/23) = 95.65 LC Deps;counts for (1443/1478) = 97.60%
+ X kernel_correlation :: for.cond103(filename:correlation.c, line:103, col:7):covered (9/12) = 75.00 LC Deps;counts for (1442/1478) = 97.60%
+ X kernel_correlation :: for.cond96(filename:correlation.c, line:100, col:5):speedup = 18.07x;covered (17/18) = 94.44 LC Deps;counts for (1443/1478) = 97.60%
+",-,43.605,-

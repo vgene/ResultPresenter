@@ -1,0 +1,5 @@
+Benchmarks,Edge,Loop,LAMP,SLAMP,SpecPriv,Estimated Speedup,Worker Count,Exec Time Coverage,Loop Info,Average Sequential Time,Average Parallel Time,Real Speedup
+gemm,y,y,y,y,y,12.00,22,96.90%," X kernel_gemm :: for.cond1(filename:gemm.c, line:70, col:5):speedup = 8.14x;covered (13/14) = 92.86 LC Deps;counts for (155/160) = 96.90%
+ X kernel_gemm :: for.cond6(filename:gemm.c, line:73, col:7):covered (8/10) = 80.00 LC Deps;counts for (152/160) = 95.00%
+ - kernel_gemm :: for.cond(filename:gemm.c, line:69, col:3):speedup = 18.60x;covered (17/18) = 94.44 LC Deps;counts for (155/160) = 96.90%
+",-,46.782,-

@@ -1,0 +1,6 @@
+Benchmarks,Edge,Loop,LAMP,SLAMP,SpecPriv,Estimated Speedup,Worker Count,Exec Time Coverage,Loop Info,Average Sequential Time,Average Parallel Time,Real Speedup
+doitgen,y,y,y,y,y,10.51,22,95.20%," X kernel_doitgen :: for.cond4(filename:doitgen.c, line:62, col:7):speedup = 7.62x;covered (12/13) = 92.31 LC Deps;counts for (438/461) = 95.00%
+ X kernel_doitgen :: for.cond11(filename:doitgen.c, line:64, col:9):speedup = 3.47x;covered (8/10) = 80.00 LC Deps;counts for (397/461) = 86.10%
+ X kernel_doitgen :: for.cond1(filename:doitgen.c, line:61, col:5):speedup = 13.78x;covered (22/23) = 95.65 LC Deps;counts for (439/461) = 95.20%
+ - kernel_doitgen :: for.cond(filename:doitgen.c, line:60, col:3):speedup = 20.09x;covered (26/27) = 96.30 LC Deps;counts for (439/461) = 95.20%
+",-,6.95,-

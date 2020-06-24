@@ -1,0 +1,1 @@
+{"obj_path": "/u/ziyangx//cpf/llvm-liberty-objects/", "sha_cpf": "e315de3e", "memo": "get parallel results", "root_path": "/u/ziyangx//CPF_Benchmarks/", "test_times": 3, "core_num": 1, "sha_bmark": "1f311cd4", "reg_option": 4, "post_slack": false, "result_path": "/u/ziyangx//CPF_Benchmarks/results/2019-07-18", "bmark_list": ["doitgen"]}

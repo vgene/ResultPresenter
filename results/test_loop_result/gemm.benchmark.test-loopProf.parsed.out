@@ -1,0 +1,4 @@
+Focus on these loops (in this order):
+ - kernel_gemm :: for.cond (filename:gemm.c, line:69, col:3)	Time 306389 / 306494 Coverage: 100.0%
+ - kernel_gemm :: for.cond1 (filename:gemm.c, line:70, col:5)	Time 306389 / 306494 Coverage: 100.0%
+ - kernel_gemm :: for.cond6 (filename:gemm.c, line:73, col:7)	Time 306202 / 306494 Coverage: 99.9%

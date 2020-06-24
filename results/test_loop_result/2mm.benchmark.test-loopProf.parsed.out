@@ -1,0 +1,7 @@
+Focus on these loops (in this order):
+ - kernel_2mm :: for.cond (filename:2mm.c, line:76, col:3)	Time 300845 / 584658 Coverage: 51.5%
+ - kernel_2mm :: for.cond1 (filename:2mm.c, line:77, col:5)	Time 300845 / 584658 Coverage: 51.5%
+ - kernel_2mm :: for.cond6 (filename:2mm.c, line:80, col:7)	Time 300678 / 584658 Coverage: 51.4%
+ - kernel_2mm :: for.cond28 (filename:2mm.c, line:83, col:3)	Time 283678 / 584658 Coverage: 48.5%
+ - kernel_2mm :: for.cond31 (filename:2mm.c, line:84, col:5)	Time 283677 / 584658 Coverage: 48.5%
+ - kernel_2mm :: for.cond39 (filename:2mm.c, line:87, col:7)	Time 283452 / 584658 Coverage: 48.5%

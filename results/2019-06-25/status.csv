@@ -1,0 +1,70 @@
+Benchmarks,Edge,Loop,LAMP,SLAMP,SpecPriv,Estimated Speedup,Worker Count,Exec Time Coverage,Loop Info,Average Sequential Time,Average Parallel Time,Real Speedup
+covariance,y,y,y,y,y,20.71,22,100.00%," X kernel_covariance :: for.cond43(filename:covariance.c, line:78, col:9):speedup = 7.99x;covered (19/21) = 90.48 LC Deps;counts for (1417/1422) = 99.60%
+ X kernel_covariance :: for.cond36(filename:covariance.c, line:75, col:5):speedup = 17.91x;covered (38/38) = 100.00 LC Deps;counts for (1422/1422) = 100.00%
+ - kernel_covariance :: for.cond33(filename:covariance.c, line:74, col:3):speedup = 20.71x;covered (42/43) = 97.67 LC Deps;counts for (1422/1422) = 100.00%
+"
+2mm,y,y,y,y,y,16.44,22,100.00%," X kernel_2mm :: for.cond6(filename:2mm.c, line:80, col:7):speedup = 3.44x;covered (20/21) = 95.24 LC Deps;counts for (112/220) = 50.90%
+ - kernel_2mm :: for.cond28(filename:2mm.c, line:83, col:3):speedup = 15.06x;covered (35/36) = 97.22 LC Deps;counts for (104/220) = 47.30%
+ - kernel_2mm :: for.cond(filename:2mm.c, line:76, col:3):speedup = 17.91x;covered (34/35) = 97.14 LC Deps;counts for (116/220) = 52.70%
+ X kernel_2mm :: for.cond31(filename:2mm.c, line:84, col:5):speedup = 6.02x;covered (29/30) = 96.67 LC Deps;counts for (104/220) = 47.30%
+ X kernel_2mm :: for.cond39(filename:2mm.c, line:87, col:7):speedup = 3.10x;covered (19/20) = 95.00 LC Deps;counts for (102/220) = 46.40%
+ X kernel_2mm :: for.cond1(filename:2mm.c, line:77, col:5):speedup = 6.60x;covered (28/29) = 96.55 LC Deps;counts for (116/220) = 52.70%
+"
+correlation,y,y,y,y,y,15.75,22,98.40%," X kernel_correlation :: for.cond103(filename:correlation.c, line:103, col:7):speedup = 7.64x;covered (17/18) = 94.44 LC Deps;counts for (1412/1440) = 98.10%
+ - kernel_correlation :: for.cond87(filename:correlation.c, line:97, col:3):speedup = 20.71x;covered (44/45) = 97.78 LC Deps;counts for (1417/1440) = 98.40%
+ X kernel_correlation :: for.cond96(filename:correlation.c, line:100, col:5):speedup = 6.67x;covered (36/37) = 97.30 LC Deps;counts for (1417/1440) = 98.40%
+"
+470.lbm,y,y,y,y,y,9.36,22,97.70%," X main :: for.cond(filename:main.c, line:39, col:2):speedup = 1.01x;covered (30142/30425) = 99.07 LC Deps;counts for (9438/9543) = 98.90%
+ - main :: for.cond.i3(filename:lbm.c, line:186, col:2):speedup = 11.71x;covered (5491/5491) = 100.00 LC Deps;counts for (9319/9543) = 97.70%
+"
+dijkstra-dynsize,y,y,y,y,y,12.08,22,98.50%," X main :: while.cond.i(filename:dijkstra_large.c, line:138, col:5):speedup = 1.34x;covered (268/277) = 96.75 LC Deps;counts for (398/405) = 98.30%
+ - main :: for.cond15(filename:dijkstra_large.c, line:188, col:3):speedup = 14.49x;covered (907/909) = 99.78 LC Deps;counts for (399/405) = 98.50%
+ X main :: while.cond.i.i(filename:dijkstra_large.c, line:89, col:5):speedup = 1.16x;covered (6/7) = 85.71 LC Deps;counts for (262/405) = 64.70%
+ X main :: for.cond12.i(filename:dijkstra_large.c, line:141, col:7):speedup = 1.32x;covered (186/191) = 97.38 LC Deps;counts for (372/405) = 91.90%
+"
+swaptions,y,y,y,y,y,16.45,22,100.00%," X _Z6workerPv :: for.cond5.i.i.i(filename:HJM_SimPath_Forward_Blocking.cpp, line:66, col:7):speedup = 2.34x;covered (71/71) = 100.00 LC Deps;counts for (128/480) = 26.70%
+ X _Z6workerPv :: for.cond73.i.i(filename:HJM_SimPath_Forward_Blocking.cpp, line:144, col:2):speedup = 4.81x;covered (75/76) = 98.68 LC Deps;counts for (148/480) = 30.80%
+ X _Z6workerPv :: for.cond.i107.i(filename:HJM_SimPath_Forward_Blocking.cpp, line:102, col:2):speedup = 1.11x;covered (44/45) = 97.78 LC Deps;counts for (27/480) = 5.60%
+ X _Z6workerPv :: for.cond1.i.i.i(filename:HJM_SimPath_Forward_Blocking.cpp, line:65, col:5):speedup = 2.92x;covered (76/77) = 98.70 LC Deps;counts for (130/480) = 27.10%
+ X _Z6workerPv :: for.cond44.i.i(filename:HJM_SimPath_Forward_Blocking.cpp, line:118, col:13):speedup = 2.03x;covered (35/36) = 97.22 LC Deps;counts for (31/480) = 6.50%
+ X _Z6workerPv :: for.cond10.i172.i(filename:HJM.cpp, line:383, col:2):speedup = 1.61x;covered (9/10) = 90.00 LC Deps;counts for (38/480) = 7.90%
+ X _Z6workerPv :: for.cond10.i137.i(filename:HJM.cpp, line:383, col:2):speedup = 2.01x;covered (9/10) = 90.00 LC Deps;counts for (53/480) = 11.00%
+ X _Z6workerPv :: for.cond77.i.i(filename:HJM_SimPath_Forward_Blocking.cpp, line:145, col:4):speedup = 3.28x;covered (69/70) = 98.57 LC Deps;counts for (148/480) = 30.80%
+ X _Z6workerPv :: for.cond11.i.i(filename:HJM_SimPath_Forward_Blocking.cpp, line:103, col:4):speedup = 3.60x;covered (38/39) = 97.44 LC Deps;counts for (25/480) = 5.20%
+ - _Z6workerPv :: for.cond(filename:HJM_Securities.cpp, line:89, col:3):speedup = 16.45x;covered (17640/17640) = 100.00 LC Deps;counts for (480/480) = 100.00%
+ X _Z6workerPv :: for.cond36.i.i(filename:HJM_SimPath_Forward_Blocking.cpp, line:116, col:9):speedup = 1.00x;covered (50/52) = 96.15 LC Deps;counts for (33/480) = 6.90%
+"
+doitgen,y,y,y,y,y,12.49,22,96.80%," - kernel_doitgen :: for.cond(filename:doitgen.c, line:60, col:3):speedup = 20.06x;covered (61/62) = 98.39 LC Deps;counts for (426/440) = 96.80%
+ X kernel_doitgen :: for.cond1(filename:doitgen.c, line:61, col:5):speedup = 13.64x;covered (55/56) = 98.21 LC Deps;counts for (426/440) = 96.80%
+ X kernel_doitgen :: for.cond11(filename:doitgen.c, line:64, col:9):speedup = 5.41x;covered (19/20) = 95.00 LC Deps;counts for (396/440) = 90.00%
+ X kernel_doitgen :: for.cond4(filename:doitgen.c, line:62, col:7):speedup = 9.06x;covered (30/31) = 96.77 LC Deps;counts for (426/440) = 96.80%
+"
+blackscholes,y,y,y,y,y,18.85,22,99.80%," - bs_thread :: for.cond(filename:blackscholes.c, line:235, col:5):speedup = 19.41x;covered (174/175) = 99.43 LC Deps;counts for (625/626) = 99.80%
+ X bs_thread :: for.cond2(filename:blackscholes.c, line:240, col:9):speedup = 14.20x;covered (168/168) = 100.00 LC Deps;counts for (625/626) = 99.80%
+"
+052.alvinn,y,y,y,y,y,4.32,22,88.90%," X main :: for.cond.i11(filename:backprop.c, line:144, col:3):speedup = 3.18x;covered (33/35) = 94.29 LC Deps;counts for (15/144) = 10.40%
+ X main :: for.cond4.i(filename:backprop.c, line:120, col:5):speedup = 1.35x;covered (18/20) = 90.00 LC Deps;counts for (52/144) = 36.10%
+ X main :: for.cond.i67(filename:backprop.c, line:200, col:3):speedup = 1.87x;covered (22/24) = 91.67 LC Deps;counts for (47/144) = 32.60%
+ X main :: for.cond2.i(filename:backprop.c, line:203, col:5):speedup = 1.23x;covered (14/16) = 87.50 LC Deps;counts for (45/144) = 31.20%
+ - main :: for.cond11(filename:backprop.c, line:278, col:6):speedup = 7.38x;covered (252/253) = 99.60 LC Deps;counts for (128/144) = 88.90%
+ X main :: for.cond(filename:backprop.c, line:276, col:4):speedup = 1.92x;covered (334/342) = 97.66 LC Deps;counts for (136/144) = 94.40%
+ X main :: for.cond.i1(filename:backprop.c, line:116, col:3):speedup = 2.54x;covered (33/35) = 94.29 LC Deps;counts for (62/144) = 43.10%
+"
+3mm,y,y,y,y,y,16.92,22,99.60%," - kernel_3mm :: for.cond27(filename:3mm.c, line:80, col:3):speedup = 17.74x;covered (33/34) = 97.06 LC Deps;counts for (109/332) = 32.80%
+ X kernel_3mm :: for.cond66(filename:3mm.c, line:89, col:5):speedup = 6.21x;covered (27/28) = 96.43 LC Deps;counts for (99/332) = 29.80%
+ X kernel_3mm :: for.cond1(filename:3mm.c, line:73, col:5):speedup = 6.87x;covered (27/28) = 96.43 LC Deps;counts for (123/332) = 37.00%
+ X kernel_3mm :: for.cond37(filename:3mm.c, line:84, col:7):speedup = 3.30x;covered (19/20) = 95.00 LC Deps;counts for (107/332) = 32.20%
+ - kernel_3mm :: for.cond(filename:3mm.c, line:72, col:3):speedup = 18.06x;covered (33/34) = 97.06 LC Deps;counts for (123/332) = 37.00%
+ X kernel_3mm :: for.cond73(filename:3mm.c, line:92, col:7):speedup = 3.11x;covered (19/20) = 95.00 LC Deps;counts for (98/332) = 29.50%
+ - kernel_3mm :: for.cond63(filename:3mm.c, line:88, col:3):speedup = 17.47x;covered (33/34) = 97.06 LC Deps;counts for (99/332) = 29.80%
+ X kernel_3mm :: for.cond6(filename:3mm.c, line:76, col:7):speedup = 3.53x;covered (19/20) = 95.00 LC Deps;counts for (119/332) = 35.80%
+ X kernel_3mm :: for.cond30(filename:3mm.c, line:81, col:5):speedup = 6.53x;covered (27/28) = 96.43 LC Deps;counts for (109/332) = 32.80%
+"
+enc-md5,y,y,y,y,y,9.78,22,99.80%," - main :: for.cond7(filename:md5.c, line:277, col:5):speedup = 9.97x;covered (13842/13842) = 100.00 LC Deps;counts for (2828/2834) = 99.80%
+ X main :: for.cond9(filename:md5.c, line:279, col:9):speedup = 2.36x;covered (2544/2566) = 99.14 LC Deps;counts for (2828/2834) = 99.80%
+ X main :: while.cond.i(filename:md5.c, line:200, col:5):speedup = 2.34x;covered (1100/1113) = 98.83 LC Deps;counts for (2826/2834) = 99.70%
+"
+gemm,y,y,y,y,y,13.33,22,97.80%," X kernel_gemm :: for.cond1(filename:gemm.c, line:70, col:5):speedup = 7.32x;covered (30/31) = 96.77 LC Deps;counts for (136/139) = 97.80%
+ X kernel_gemm :: for.cond6(filename:gemm.c, line:73, col:7):speedup = 3.77x;covered (20/21) = 95.24 LC Deps;counts for (130/139) = 93.50%
+ - kernel_gemm :: for.cond(filename:gemm.c, line:69, col:3):speedup = 18.31x;covered (36/37) = 97.30 LC Deps;counts for (136/139) = 97.80%
+",882.996,50.464,17.5

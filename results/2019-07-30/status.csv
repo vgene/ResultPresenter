@@ -1,0 +1,18 @@
+Benchmarks,Edge,Loop,LAMP,SLAMP,SpecPriv,Estimated Speedup,Worker Count,Exec Time Coverage,Loop Info,Average Sequential Time,Average Parallel Time,Real Speedup
+2mm,y,y,y,y,y,16.73,22,99.60%," X kernel_2mm :: for.cond6(filename:2mm.c, line:80, col:7):covered (8/10) = 80.00 LC Deps;counts for (123/235) = 52.30%
+ X kernel_2mm :: for.cond1(filename:2mm.c, line:77, col:5):speedup = 7.19x;covered (12/13) = 92.31 LC Deps;counts for (124/235) = 52.80%
+ X kernel_2mm :: for.cond31(filename:2mm.c, line:84, col:5):speedup = 6.60x;covered (13/14) = 92.86 LC Deps;counts for (110/235) = 46.80%
+ - kernel_2mm :: for.cond(filename:2mm.c, line:76, col:3):speedup = 18.08x;covered (16/17) = 94.12 LC Deps;counts for (124/235) = 52.80%
+ X kernel_2mm :: for.cond39(filename:2mm.c, line:87, col:7):covered (8/10) = 80.00 LC Deps;counts for (108/235) = 46.00%
+ - kernel_2mm :: for.cond28(filename:2mm.c, line:83, col:3):speedup = 17.77x;covered (17/18) = 94.44 LC Deps;counts for (110/235) = 46.80%
+",-,93.726,-
+doitgen,y,y,y,y,y,11.06,22,95.70%," X kernel_doitgen :: for.cond11(filename:doitgen.c, line:64, col:9):covered (8/10) = 80.00 LC Deps;counts for (452/512) = 88.30%
+ X kernel_doitgen :: for.cond1(filename:doitgen.c, line:61, col:5):speedup = 14.29x;covered (22/23) = 95.65 LC Deps;counts for (490/512) = 95.70%
+ X kernel_doitgen :: for.cond4(filename:doitgen.c, line:62, col:7):speedup = 8.33x;covered (12/13) = 92.31 LC Deps;counts for (490/512) = 95.70%
+ - kernel_doitgen :: for.cond(filename:doitgen.c, line:60, col:3):speedup = 20.18x;covered (26/27) = 96.30 LC Deps;counts for (490/512) = 95.70%
+",-,40.77,-
+dijkstra-dynsize,y,y,y,y,y,10.92,22,98.10%," X main :: while.cond.i19.i(filename:dijkstra_large.c, line:89, col:5):covered (4/5) = 80.00 LC Deps;counts for (253/414) = 61.10%
+ - main :: for.cond15(filename:dijkstra_large.c, line:188, col:3):speedup = 13.57x;covered (442/444) = 99.55 LC Deps;counts for (406/414) = 98.10%
+ X main :: for.cond12.i(filename:dijkstra_large.c, line:141, col:7):covered (94/98) = 95.92 LC Deps;counts for (380/414) = 91.80%
+ X main :: while.cond.i(filename:dijkstra_large.c, line:138, col:5):covered (158/163) = 96.93 LC Deps;counts for (405/414) = 97.80%
+",-,3.474,-

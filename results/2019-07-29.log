@@ -1,0 +1,1 @@
+{"result_path": "/dev/shm/cpf_regression/results/2019-07-29", "sha_bmark": "49ffc7ba", "sha_cpf": "63087145", "bmark_list": ["2mm", "dijkstra-dynsize", "doitgen"], "post_slack": false, "reg_option": 4, "memo": "parallel time", "root_path": "/dev/shm/cpf_regression/", "obj_path": "/u/ziyangx//cpf/llvm-liberty-objects/", "core_num": 8, "test_times": 3}

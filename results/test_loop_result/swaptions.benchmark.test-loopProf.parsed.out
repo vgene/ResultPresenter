@@ -1,0 +1,14 @@
+Focus on these loops (in this order):
+ - _Z6workerPv :: for.cond (filename:HJM_Securities.cpp, line:89, col:3)	Time 1862952 / 1862962 Coverage: 100.0%
+ - _Z6workerPv :: for.cond73.i.i (filename:HJM_SimPath_Forward_Blocking.cpp, line:144, col:2)	Time 580030 / 1862962 Coverage: 31.1%
+ - _Z6workerPv :: for.cond77.i.i (filename:HJM_SimPath_Forward_Blocking.cpp, line:145, col:4)	Time 577064 / 1862962 Coverage: 31.0%
+ - _Z6workerPv :: for.cond1.i.i.i (filename:HJM_SimPath_Forward_Blocking.cpp, line:65, col:5)	Time 510852 / 1862962 Coverage: 27.4%
+ - _Z6workerPv :: for.cond5.i.i.i (filename:HJM_SimPath_Forward_Blocking.cpp, line:66, col:7)	Time 502215 / 1862962 Coverage: 27.0%
+ - _Z6workerPv :: for.cond10.i144.i (filename:HJM.cpp, line:383, col:2)	Time 188132 / 1862962 Coverage: 10.1%
+ - _Z6workerPv :: for.cond10.i179.i (filename:HJM.cpp, line:383, col:2)	Time 149457 / 1862962 Coverage: 8.0%
+ - _Z6workerPv :: for.cond.i107.i (filename:HJM_SimPath_Forward_Blocking.cpp, line:102, col:2)	Time 109736 / 1862962 Coverage: 5.9%
+ - _Z6workerPv :: for.cond36.i.i (filename:HJM_SimPath_Forward_Blocking.cpp, line:116, col:9)	Time 107988 / 1862962 Coverage: 5.8%
+ - _Z6workerPv :: for.cond11.i.i (filename:HJM_SimPath_Forward_Blocking.cpp, line:103, col:4)	Time 106923 / 1862962 Coverage: 5.7%
+ - _Z6workerPv :: for.cond33.i.i (filename:HJM.cpp, line:390, col:2)	Time 98920 / 1862962 Coverage: 5.3%
+ - _Z6workerPv :: for.cond44.i.i (filename:HJM_SimPath_Forward_Blocking.cpp, line:118, col:13)	Time 97136 / 1862962 Coverage: 5.2%
+ - _Z6workerPv :: for.cond37.i.i (filename:HJM.cpp, line:392, col:4)	Time 96960 / 1862962 Coverage: 5.2%

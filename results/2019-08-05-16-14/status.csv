@@ -1,0 +1,18 @@
+Benchmarks,Edge,Loop,LAMP,SpecPriv,Estimated Speedup,Worker Count,Exec Time Coverage,Loop Info,Average Sequential Time,Average Parallel Time,Real Speedup
+dijkstra-dynsize,y,y,y,y,10.92,22,98.10%," X main :: while.cond.i19.i(filename:dijkstra_large.c, line:89, col:5):covered (4/5) = 80.00 LC Deps;counts for (253/414) = 61.10%
+ - main :: for.cond15(filename:dijkstra_large.c, line:188, col:3):speedup = 13.57x;covered (442/444) = 99.55 LC Deps;counts for (406/414) = 98.10%
+ X main :: while.cond.i(filename:dijkstra_large.c, line:138, col:5):covered (158/163) = 96.93 LC Deps;counts for (405/414) = 97.80%
+ X main :: for.cond12.i(filename:dijkstra_large.c, line:141, col:7):covered (94/98) = 95.92 LC Deps;counts for (380/414) = 91.80%
+",995.234,-,-
+052.alvinn,y,y,y,y,5.11,22,91.30%," X main :: for.cond.i11(filename:backprop.c, line:141, col:3):speedup = 4.09x;covered (17/19) = 89.47 LC Deps;counts for (19/173) = 11.00%
+ - main :: for.cond11(filename:backprop.c, line:270, col:6):speedup = 8.38x;covered (121/122) = 99.18 LC Deps;counts for (158/173) = 91.30%
+ X main :: for.cond4.i(filename:backprop.c, line:117, col:5):covered (10/13) = 76.92 LC Deps;counts for (73/173) = 42.20%
+ X main :: for.cond.i67(filename:backprop.c, line:197, col:3):speedup = 2.02x;covered (13/15) = 86.67 LC Deps;counts for (51/173) = 29.50%
+ X main :: for.cond(filename:backprop.c, line:268, col:4):covered (172/180) = 95.56 LC Deps;counts for (164/173) = 94.80%
+ X main :: for.cond.i1(filename:backprop.c, line:113, col:3):speedup = 3.20x;covered (17/19) = 89.47 LC Deps;counts for (80/173) = 46.20%
+ X main :: for.cond2.i(filename:backprop.c, line:200, col:5):covered (8/10) = 80.00 LC Deps;counts for (49/173) = 28.30%
+",741.286,-,-
+enc-md5,y,y,y,y,9.76,22,99.80%," X main :: for.cond9(filename:md5.c, line:279, col:9):covered (446/451) = 98.89 LC Deps;counts for (3330/3337) = 99.80%
+ - main :: for.cond7(filename:md5.c, line:277, col:5):speedup = 9.94x;covered (4310/4311) = 99.98 LC Deps;counts for (3330/3337) = 99.80%
+ X main :: while.cond.i(filename:md5.c, line:200, col:5):covered (98/112) = 87.50 LC Deps;counts for (3325/3337) = 99.60%
+",863.473,-,-
