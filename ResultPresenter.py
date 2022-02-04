@@ -125,6 +125,7 @@ class ResultProvider:
                         bmark = filename.replace(
                             "status_", "").replace(".json", "")
                         all_status[bmark] = status
+
             all_reg_results[date] = all_status
         self._all_reg_results = all_reg_results
 
@@ -209,6 +210,50 @@ class ResultProvider:
         ))
 
         return data
+ 
+    def getSpeedupExp3(self, date_list, speedup_threshold=2.0):
+        self.updateResult(date_list)
+        speedup_bar_list = []
+
+        def getMemo(date):
+            with open(self._path + date + '.log') as fd:
+                obj = json.load(fd)
+                if 'memo' in obj:
+                    return obj['memo']
+                else:
+                    return "No Memo"
+
+        def update_list(x_list, y_list, date, exp_key):
+            # sort two list together
+            y_list, x_list = (list(t)
+                              for t in zip(*sorted(zip(y_list, x_list))))
+
+            geomean = geo_mean_overflow(y_list)
+            x_list.append("geomean")
+            y_list.append(geomean)
+            # y_list = list(map(lambda x: x - 1, y_list))
+            return {'x': x_list, 'y': y_list, 'type': 'bar',
+                    'name': date[5:] + " " + exp_key[11:] + " " + getMemo(date)}
+
+        for date in date_list:
+            reg_results = self._all_reg_results[date]
+            #exps = [ "Experiment-no-spec", "Experiment-cheap-spec", "Experiment-all-spec", "Experiment-no-specpriv"]
+            # exps = [ "Experiment-no-spec", "Experiment-cheap-spec", "Experiment-all-spec"]
+            exps = [ "Experiment-no-spec", "Experiment-no-specpriv"]
+            for exp_key in exps:
+                x_list = []
+                y_list = []
+                for bmark, status in reg_results.items():
+                    if exp_key in status and status[exp_key]:
+                        if 'speedup' in status[exp_key]:
+                            x_list.append(bmark)
+                            y_list.append(status[exp_key]['speedup'])
+                            if status[exp_key]['speedup'] < speedup_threshold:
+                                continue
+
+                speedup_bar_list.append(update_list(x_list, y_list, date, exp_key))
+
+        return speedup_bar_list
 
     def getSpeedupData(self, date_list, speedup_threshold=2.0):
         self.updateResult(date_list)
@@ -247,7 +292,7 @@ class ResultProvider:
                             for name, loop_status in status['Experiment']['loops'].items():
                                 if 'selected' in loop_status and not loop_status['selected']:
                                     continue
-                                if 'loop_stage' in loop_status and loop_status['loop_stage'] != "DSWP[P22]":
+                                if 'loop_stage' in loop_status and "P22" not in loop_status['loop_stage']:
                                     DOALL_only = False
                                     break
                             if DOALL_only:
@@ -262,8 +307,9 @@ class ResultProvider:
             speedup_bar_list.append(update_list(x_list, y_list, date))
             speedup_bar_list_DOALL_only.append(update_list(x_list_DOALL,
                                                            y_list_DOALL, date))
-            speedup_bar_list_without_DOALL.append(update_list(x_list_no_DOALL,
-                                                              y_list_no_DOALL, date))
+            if x_list_no_DOALL:
+                speedup_bar_list_without_DOALL.append(update_list(x_list_no_DOALL,
+                                                                  y_list_no_DOALL, date))
 
         return speedup_bar_list, speedup_bar_list_DOALL_only, speedup_bar_list_without_DOALL
 
@@ -279,11 +325,9 @@ def parseArgs():
     parser = argparse.ArgumentParser()
     parser.add_argument("-p", "--root_path", type=str, required=True,
                         help="Root path of CPF benchmark directory")
-    parser.add_argument("--port", type=str, default="8050",
-                        help="Port for Dash server to run, 8050 or 8060 on AWS")
     args = parser.parse_args()
 
-    return args.root_path, args.port
+    return args.root_path
 
 
 # some setting for plot
@@ -344,7 +388,10 @@ def getComparePrivateerLayout(resultProvider):
         for bmark, para_time in one_para_data.items():
             if bmark not in seq_data:
                 continue
-            one_bmark_list.append(bmark)
+            if bmark == "dijkstra-dynsize":
+                one_bmark_list.append("dijkstra")
+            else:
+                one_bmark_list.append(bmark)
             seq_time = seq_data[bmark]
             speedup = round(seq_time / para_time, 2)
             one_speedup_list.append(speedup)
@@ -371,19 +418,81 @@ def getComparePrivateerLayout(resultProvider):
                    'type': 'bar', 'name': bar_name, 'marker_color': color}
         return bar_one
 
-    bar_privateer_peep = getOneBar(privateer_peep_time_list, "Privateer", '#ca0020')
-    bar_privateer_both = getOneBar(privateer_both_time_list, "Per<i>spec</i>tive (Planner Only)", '#f4a582')
+    def getOneBarSpeedup(speedup_dict, bar_name, color):
+        one_bmark_list = []
+        one_speedup_list = []
+
+        for bmark in bmark_list:
+            if bmark == "dijkstra-dynsize":
+                one_bmark_list.append("dijkstra")
+            else:
+                one_bmark_list.append(bmark)
+            one_speedup_list.append(speedup_dict[bmark])
+
+        one_text_list = one_speedup_list
+
+        one_speedup_list.append(geo_mean_overflow(one_speedup_list))
+        one_bmark_list.append("Geomean")
+        one_text_list.append("Geomean")
+        bar_one = {'x': one_bmark_list, 'y': one_speedup_list, 'text': one_text_list,
+                   'type': 'bar', 'name': bar_name, 'marker_color': color}
+        return bar_one
+
+    #bar_privateer_peep = getOneBar(privateer_peep_time_list, "Privateer", '#ca0020')
+    #bar_privateer_both = getOneBar(privateer_both_time_list, "Per<i>spec</i>tive (Planner Only)", '#f4a582')
+    ## bar_perspective_SAMA = getOneBar(perspective_SAMA_time_list, "Per<i>spec</i>tive Speculative-Aware-Memory-Analysis", '#92c5de')
+    #bar_perspective_cheap_priv = getOneBar(perspective_cheap_priv_time_list, "Per<i>spec</i>tive (Planner + Efficient SpecPriv)", '#abd9e9')
+    #bar_perspective = getOneBar(perspective_time_list, "Per<i>spec</i>tive (Planner + Efficient SpecPriv +SAMA)", '#0571b0')
+    #
+    #bar_list = [bar_privateer_peep, bar_privateer_both, bar_perspective_cheap_priv, bar_perspective]
+
+    icc_speedup_dict = {
+            "correlation": 1.0,
+            "2mm": 17.4,
+            "3mm": 17.7,
+            "covariance": 1.0, 
+            "gemm": 15.3,
+            "doitgen": 20.6,
+            "swaptions": 1.0,
+            "blackscholes": 1.151,
+            "052.alvinn": 1.0,
+            "enc-md5": 1.0,
+            "dijkstra-dynsize": 1.0,
+            "179.art": 1.0
+            }
+
+    gcc_speedup_dict = {
+            "correlation": 1.0,
+            "2mm": 1.149,
+            "3mm": 1.129,
+            "covariance": 1.196, 
+            "gemm": 1.156,
+            "doitgen": 1.138,
+            "swaptions": 1.147,
+            "blackscholes": 1.0,
+            "052.alvinn": 1.0,
+            "enc-md5": 1.0,
+            "dijkstra-dynsize": 1.0,
+            "179.art": 1.0
+            }
+    #bar_privateer_peep = getOneBar(privateer_peep_time_list, "Privateer", '#ca0020')
+    bar_gcc = getOneBarSpeedup(gcc_speedup_dict, "GCC", '#f4a582')
+    bar_icc = getOneBarSpeedup(icc_speedup_dict, "ICC", '#ca0020')#'#abd9e9')
+    bar_privateer_peep = getOneBar(privateer_peep_time_list, "Privateer", '#abd9e9') #'#ca0020')
+    bar_privateer_both = getOneBar(privateer_both_time_list, "Per<i>spec</i>tive (Planner Only)", '#92c5de')
+    ## bar_perspective_SAMA = getOneBar(perspective_SAMA_time_list, "Per<i>spec</i>tive Speculative-Aware-Memory-Analysis", '#92c5de')
+    bar_perspective_cheap_priv = getOneBar(perspective_cheap_priv_time_list, "Per<i>spec</i>tive (Planner + Efficient SpecPriv)", '#20a0de')
     # bar_perspective_SAMA = getOneBar(perspective_SAMA_time_list, "Per<i>spec</i>tive Speculative-Aware-Memory-Analysis", '#92c5de')
-    bar_perspective_cheap_priv = getOneBar(perspective_cheap_priv_time_list, "Per<i>spec</i>tive (Planner + Efficient SpecPriv)", '#abd9e9')
     bar_perspective = getOneBar(perspective_time_list, "Per<i>spec</i>tive (Planner + Efficient SpecPriv +SAMA)", '#0571b0')
+    #bar_perspective = getOneBar(perspective_time_list, "Per<i>spec</i>tive", '#0571b0')
     
-    bar_list = [bar_privateer_peep, bar_privateer_both, bar_perspective_cheap_priv, bar_perspective]
+    bar_list = [bar_gcc, bar_icc, bar_privateer_peep, bar_privateer_both, bar_perspective_cheap_priv,  bar_perspective]
 
     fig = go.Figure({
                     'data': bar_list,
                     'layout': {
                         # 'title': 'Parallel Execution Comparison',
-                        'legend': {'orientation': 'h', 'x': 0.2, 'y': 1.3},
+                        'legend': {'orientation': 'h', 'x': 0.2, 'y': 1.35},
                         'yaxis': {
                             'showline': True, 
                             'linewidth': 2,
@@ -409,7 +518,7 @@ def getComparePrivateerLayout(resultProvider):
                         'height': 400}
                     })
 
-    # fig.write_image("images/fig_compare.svg")
+    #fig.write_image("images/fig_compare_new.pdf")
     layout = [html.Div(children='''
             Compare Parallel Runtime with Privateer on 28 cores (Average of 5 runs)
         '''),
@@ -422,12 +531,73 @@ def getComparePrivateerLayout(resultProvider):
     return layout
 
 
+def getEstimatedSpeedupLayoutExp3(resultProvider):
+    # no change  '2021-06-01-16-19','2021-06-02-00-36',
+    #date_list = ['2021-05-20-18-41', '2021-05-25-00-28', '2021-05-25-20-03',  '2021-06-03-11-47', '2021-06-03-18-39', '2021-06-08-00-14', '2021-06-08-22-36', '2021-06-21-17-44', '2021-07-07-21-43', '2021-09-28-15-59']
+    #date_list = ['2021-05-20-18-41', '2021-05-25-00-28', '2021-05-25-20-03',  '2021-06-03-11-47', '2021-06-03-18-39', '2021-06-08-00-14', '2021-06-08-22-36', '2021-06-21-17-44', '2021-07-07-21-43', '2021-09-28-15-59', '2021-10-25-21-23']
+    date_list = ['2021-10-25-21-23']
+
+    data_speedup_exp3 = resultProvider.getSpeedupExp3(date_list, 1.0)
+
+    fig = go.Figure({
+        'data': data_speedup_exp3,
+        'layout': {
+            'title': 'Speedup',
+            'yaxis': {
+                'showline': True, 
+                'linewidth': 2,
+                'ticks': "inside",
+                'mirror': 'all',
+                'linecolor': 'black',
+                'gridcolor':'rgb(200,200,200)', 
+                'range': [0, 28.5],
+                'nticks': 15,
+                'title': {'text': "Whole Program Speedup over Sequential"},
+                'ticksuffix': "x",
+                },
+            'xaxis': {
+                'linecolor': 'black',
+                'showline': True, 
+                'linewidth': 2,
+                'mirror': 'all'
+                },
+            'font': {'family': 'Helvetica', 'color': "Black"},
+            'plot_bgcolor': 'white',
+            }
+        })
+
+    fig.add_hline(y=1.0)
+    
+    layout_speedup = [html.Div(children='''
+            Estimated Speedup on 22 cores
+        '''),
+
+        # Data Layout:
+        # [
+        #     {'x': [1, 2, 3], 'y': [4, 1, 2], 'type': 'bar', 'name': 'SF'},
+        #     {'x': [1, 2, 3], 'y': [2, 4, 5], 'type': 'bar', 'name': 'Montréal'},
+        # ]
+
+        dcc.Graph(
+            id='speed-graph',
+            figure=fig
+            )]
+
+    return layout_speedup
+
+
 def getEstimatedSpeedupLayout(resultProvider):
     date_list = ['2019-04-28', '2019-05-20', '2019-05-22',
-                 '2019-06-04', '2019-06-06', '2019-06-08']
+                 '2019-06-04', '2019-06-06', '2019-06-08',
+                 '2020-08-14-00-17', '2021-02-22-12-22',
+                 '2021-03-01-00-19', '2021-03-04-00-18',
+                 '2021-03-05-00-19', '2021-03-07-00-19',
+                 '2021-03-09-00-20', '2021-03-11-00-20',
+                 '2021-03-15-19-31', '2021-03-16-01-20',
+                 '2021-03-18-01-21', '2021-03-26-01-54']
 
     data_speedup, data_speedup_DOALL, data_speedup_no_DOALL = resultProvider.getSpeedupData(
-        date_list)
+        date_list, 1.0)
 
     layout = [html.H1(children='CPF Estimated Speedup Result')]
 
@@ -592,6 +762,9 @@ def display_page(pathname):
     elif pathname == '/estimatedSpeedup':
         layout = getEstimatedSpeedupLayout(app._resultProvider)
         return layout
+    elif pathname == '/estimatedSpeedup-exp3':
+        layout = getEstimatedSpeedupLayoutExp3(app._resultProvider)
+        return layout
     elif pathname == '/comparePrivateer':
         layout = getComparePrivateerLayout(app._resultProvider)
         return layout
@@ -605,7 +778,7 @@ def display_page(pathname):
 
 
 if __name__ == '__main__':
-    cpf_root, port = parseArgs()
+    cpf_root = parseArgs()
     result_path = os.path.join(cpf_root, "./results/")
     app._resultProvider = ResultProvider(result_path)
 
@@ -618,7 +791,9 @@ if __name__ == '__main__':
         dcc.Link('Compare with Privateer', href='/comparePrivateer'),
         html.Br(),
         dcc.Link('Estimated Speedup', href='/estimatedSpeedup'),
+        html.Br(),
+        dcc.Link('Estimated Speedup (ASPLOS22)', href='/estimatedSpeedup-exp3'),
         html.Div(id='page-content')
     ])
 
-    app.run_server(debug=False, host='0.0.0.0', port=port)
+    app.run_server(debug=False, host='0.0.0.0')
