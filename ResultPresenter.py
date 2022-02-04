@@ -14,7 +14,7 @@ import dash
 import dash_core_components as dcc
 import dash_html_components as html
 import plotly.graph_objects as go
-
+from VisualizeCoverage import getCdfFig
 
 # Geometric mean helper
 def geo_mean_overflow(iterable):
@@ -744,6 +744,21 @@ def getMultiCoreLayout(resultProvider):
     return layout
 
 
+def getCoverageLayout(resultProvider):
+    date = "2022-01-27"
+    directory = os.path.join(resultProvider._path, date)
+    fig = getCdfFig(directory)
+    layout = [html.Div(children='''
+            Multiple Core Speedup Results
+        '''),
+              dcc.Graph(
+        id='multicore-speedup-graph',
+        figure=fig
+    )]
+
+    return layout
+
+
 @app.callback(dash.dependencies.Output('page-content', 'children'),
               [dash.dependencies.Input('url', 'pathname')])
 def display_page(pathname):
@@ -764,6 +779,9 @@ def display_page(pathname):
         return layout
     elif pathname == '/estimatedSpeedup-exp3':
         layout = getEstimatedSpeedupLayoutExp3(app._resultProvider)
+        return layout
+    elif pathname == '/coverage':
+        layout = getCoverageLayout(app._resultProvider)
         return layout
     elif pathname == '/comparePrivateer':
         layout = getComparePrivateerLayout(app._resultProvider)
@@ -792,7 +810,8 @@ if __name__ == '__main__':
         html.Br(),
         dcc.Link('Estimated Speedup', href='/estimatedSpeedup'),
         html.Br(),
-        dcc.Link('Estimated Speedup (ASPLOS22)', href='/estimatedSpeedup-exp3'),
+        dcc.Link('Estimated Speedup (new)', href='/estimatedSpeedup-exp3'),
+        dcc.Link('Coverage (OOPSLA22)', href='/coverage'),
         html.Div(id='page-content')
     ])
 
